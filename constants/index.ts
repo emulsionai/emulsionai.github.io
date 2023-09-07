@@ -1,3 +1,8 @@
+
+import deepPhoto from "@/public/Deep.png";
+import parthPhoto from "@/public/Parth.png";
+import divyanshuPhoto from "@/public/Divyanshu.png";
+
 export const missionData = [
   {
     title: "Privacy and Security",
@@ -36,14 +41,17 @@ export const dreamTeam = [
   {
     name: "Parth Karkar",
     role: "Co-Founder",
+    img: parthPhoto,
   },
   {
     name: "Divyanshu Kumar",
     role: "Co-Founder",
+    img: divyanshuPhoto,
   },
   {
     name: "Deepkumar Pambhar",
     role: "Co-Founder",
+    img: deepPhoto,
   },
 ];
 

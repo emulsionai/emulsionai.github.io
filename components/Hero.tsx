@@ -12,7 +12,6 @@ const Hero = () => {
         the foundation of privacy, security, and efficiency.
       </p>
 
-      <button className="hero-btn">Learn More</button>
       <div className="blur-right mr-[-24px]" />
     </div>
   );

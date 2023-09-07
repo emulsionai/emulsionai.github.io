@@ -4,6 +4,10 @@ import Image from "next/image";
 import twitter from "@/public/twitter.svg";
 import linkedin from "@/public/linkedin.svg";
 
+import deepPhoto from "@/public/Deep.png";
+import parthPhoto from "@/public/Parth.png";
+import divyanshuPhoto from "@/public/Divyanshu.png";
+
 const AboutUs = () => {
   return (
     <div id="about-us" className="relative bg-[#001B3D] mt-24">
@@ -13,11 +17,7 @@ const AboutUs = () => {
           <div className="heading">About Us</div>
         </div>
         <p className="sm:col-span-2 font-manrope text-[#81AFDD] text-xs sm:text-sm my-5 sm:my-0 md:text-base">
-          We have spent years scaling start-ups, building out digital
-          experiences and working at big tech – including Google, Amazon,
-          Fitbit, D2L, Typeform, Lazer, and Redbull.We have spent years scaling
-          start-ups, building out digital experiences and working at big tech –
-          including Google, Amazon, Fitbit, D2L, Typeform, Lazer, and Redbull.
+          Coming soon, stay tuned!
         </p>
         <h1 className="sm:col-span-3 gradient-text font-manrope font-semibold tracking-tight text-2xl md:text-[50px] md:leading-[55px] sm:text-4xl my-10 sm:my-16">
           Meet The Leaders
