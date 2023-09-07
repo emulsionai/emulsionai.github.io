@@ -1,41 +1,61 @@
 import { dreamTeam } from "@/constants";
+import Image from "next/image";
+
+import twitter from "@/public/twitter.svg";
+import linkedin from "@/public/linkedin.svg";
 
 const AboutUs = () => {
   return (
     <div id="about-us" className="relative bg-[#001B3D] mt-24">
-      <div className="blur-left ml-[-24px] mt-[-24px]" />
-      <div className="gird gird-cols-1 py-10">
-        <div className="pl-4 pr-12">
+      <div className="grid grid-cols-1 sm:grid-cols-3 p-5 sm:p-7 md:p-12">
+        <div className="col-span-1 flex flex-col">
           <div className="gradient-bar" />
-          <h1 className="heading">About Us</h1>
-          <p className="text">
-            At Emulsion AI, our mission is clear - to empower businesses to
-            harness the power of open-source Large Language Models (LLMs) within
-            their private or virtual clouds effortlessly. We're dedicated to
-            making AI work for you while preserving your data and adhering to
-            stringent regulations.
-          </p>
-          <h1 className="gradient-text font-manrope font-semibold text-2xl mb-12 mt-10 tracking-tight">
-            The possibilities are beyond your imagination
-          </h1>
+          <div className="heading">About Us</div>
         </div>
-        <div className="grid grid-cols-2">
+        <p className="sm:col-span-2 font-manrope text-[#81AFDD] text-xs sm:text-sm my-5 sm:my-0 md:text-base">
+          We have spent years scaling start-ups, building out digital
+          experiences and working at big tech – including Google, Amazon,
+          Fitbit, D2L, Typeform, Lazer, and Redbull.We have spent years scaling
+          start-ups, building out digital experiences and working at big tech –
+          including Google, Amazon, Fitbit, D2L, Typeform, Lazer, and Redbull.
+        </p>
+        <h1 className="sm:col-span-3 gradient-text font-manrope font-semibold tracking-tight text-2xl md:text-[50px] md:leading-[55px] sm:text-4xl my-10 sm:my-16">
+          Meet The Leaders
+        </h1>
+        <div className="sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
           {dreamTeam.map((data, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center col-span-1"
-            >
-              <div className="au-gradient-bar" />
-              <div className="w-[130px] h-[135px] bg-white rounded-lg mt-5 mb-2"></div>
-              <h1 className="heading">{data.name}</h1>
-              <p className="font-manrope text-[#81AFDD] text-xs mt-2 mb-10">
+            <div className="col-span-1 flex flex-col justify-center items-center bg-[#81AFDD] bg-opacity-10 h-96 rounded-3xl">
+              <div className="w-52 h-52 bg-[#81AFDD] opacity-60 rounded-full" />
+              <h2 className="font-manrope font-semibold text-white text-lg mt-4">
+                {data.name}
+              </h2>
+              <h4 className="font-monrope text-[#81AFDD] text-sm">
                 {data.role}
-              </p>
+              </h4>
+              <div className="flex flex-row justify-center items-center gap-5 mt-5">
+                <a href="/">
+                  <Image
+                    src={twitter}
+                    alt=""
+                    width={20}
+                    height={20}
+                    objectFit="contain"
+                  />
+                </a>
+                <a href="/">
+                  <Image
+                    src={linkedin}
+                    alt=""
+                    width={20}
+                    height={20}
+                    objectFit="contain"
+                  />
+                </a>
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="blur-right mr-[-24px]" />
     </div>
   );
 };

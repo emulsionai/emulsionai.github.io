@@ -1,13 +1,17 @@
 "use client";
 
-import { useState, useRef, FormEventHandler, FormEvent } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+
+import { useState, useRef, Fragment, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 
-const ej_service = process.env.EMAILJS_SERVICE_API!;
-const ej_template = process.env.EMAILJS_TEMPLATE!;
-const ej_user = process.env.EMAILJS_USER!;
+const ej_service = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_API!;
+const ej_template = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE!;
+const ej_user = process.env.NEXT_PUBLIC_EMAILJS_USER!;
 
 const ContactUs = () => {
+  let [isOpen, setIsOpen] = useState(false);
+
   const formRef = useRef(null);
   const [form, setFrom] = useState({
     name: "",
@@ -45,7 +49,7 @@ const ContactUs = () => {
       )
       .then(() => {
         setLoading(false);
-        alert("Thank you. I will get back to you as soon as possible.");
+        setIsOpen(true);
         setFrom({
           name: "",
           email: "",
@@ -62,16 +66,18 @@ const ContactUs = () => {
   return (
     <div
       id="contact-us"
-      className="relative grid grid-cols-1 items-start mt-24"
+      className="relative grid md:grid-cols-2 items-start mt-24 "
     >
       <div className="blur-left ml-[-24px] mt-[-24px]" />
-      <h1 className=" gradient-text font-manrope font-semibold text-2xl mb-12 mt-10 tracking-tight">
+      <h1 className=" gradient-text features-heading sm:w-[250px]">
         Contact Us
       </h1>
-      <form ref={formRef} onSubmit={handelSubmit}>
+      <form ref={formRef} onSubmit={handelSubmit} className="md:ml-[-75px]">
         <label className="form-label">
-          <div className="gradient-bar" />
-          <span className="heading">Name</span>
+          <div className="col-span-1">
+            <div className="gradient-bar mb-2" />
+            <span className="heading">Name</span>
+          </div>
           <input
             type="text"
             name="name"
@@ -82,8 +88,10 @@ const ContactUs = () => {
           />
         </label>
         <label className="form-label">
-          <div className="gradient-bar" />
-          <span className="heading">Email</span>
+          <div className="col-span-1">
+            <div className="gradient-bar mb-2" />
+            <span className="heading">Email</span>
+          </div>
           <input
             type="email"
             name="email"
@@ -94,8 +102,10 @@ const ContactUs = () => {
           />
         </label>
         <label className="form-label">
-          <div className="gradient-bar" />
-          <span className="heading">Message</span>
+          <div className="col-span-1">
+            <div className="gradient-bar mb-2" />
+            <span className="heading">Message</span>
+          </div>
           <textarea
             name="message"
             rows={7}
@@ -110,6 +120,66 @@ const ContactUs = () => {
         </button>
       </form>
       <div className="blur-right mr-[-24px]" />
+
+      {/* Dialog Box */}
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          onClose={() => setIsOpen(false)}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-gray-900"
+                  >
+                    Message Recieved
+                  </Dialog.Title>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
+                      Your message has been submitted successfully. We will get
+                      back to you as soon as possible.
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="dialog-box"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Got it, thanks!
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
     </div>
   );
 };
