@@ -35,7 +35,7 @@
 /* Hero */
 
 .hero {
-  @apply grid sm:grid-cols-1 mt-12 items-center gap-2 sm:gap-5 relative;
+  @apply grid sm:grid-cols-1 mt-12 md:mt-24  items-center gap-2 sm:gap-5 relative;
 }
 
 .hero-heading {

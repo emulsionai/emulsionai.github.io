@@ -1,4 +1,3 @@
-
 import deepPhoto from "@/public/Deep.png";
 import parthPhoto from "@/public/Parth.png";
 import divyanshuPhoto from "@/public/Divyanshu.png";
@@ -42,16 +41,19 @@ export const dreamTeam = [
     name: "Parth Karkar",
     role: "Co-Founder",
     img: parthPhoto,
+    linkedinLink: "https://www.linkedin.com/in/parth-karkar-01724b1b9",
   },
   {
     name: "Divyanshu Kumar",
     role: "Co-Founder",
     img: divyanshuPhoto,
+    linkedinLink: "https://www.linkedin.com/in/divyanshuusingh",
   },
   {
     name: "Deepkumar Pambhar",
     role: "Co-Founder",
     img: deepPhoto,
+    linkedinLink: "https://www.linkedin.com/in/deepkumar-pambhar-b2a776203",
   },
 ];
 
