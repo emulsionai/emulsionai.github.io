@@ -1,0 +1,11 @@
+.hero-container {
+    @apply flex flex-col gap-5 py-12
+}
+
+.hero-heading {
+    @apply font-manrope font-bold text-3xl tracking-tight sm:text-5xl md:text-[80px] md:leading-[95px] md:w-10/12
+}
+
+.hero-text {
+    @apply font-manrope text-[#81AFDD] text-xs sm:text-base tracking-wider w-9/12 sm:w-3/4 md:w-2/4;
+}

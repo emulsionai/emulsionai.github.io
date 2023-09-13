@@ -115,7 +115,7 @@ const ContactUs = () => {
             className="form-input"
           />
         </label>
-        <button className="hero-btn" type="submit">
+        <button className="btn" type="submit">
           {loading ? "Sending..." : "Send"}
         </button>
       </form>

@@ -3,7 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
+import "./Navbar.css";
 import menu from "@/public/menu.svg";
 import close from "@/public/close.svg";
 import logo from "@/public/logo.png";
@@ -14,7 +16,13 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="nav">
+    <motion.nav
+      className="nav"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }} // animate the opacity and y position
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.5 }}
+    >
       {/* Logo */}
       <Link href={"/"}>
         <Image src={logo} alt="" objectFit="contain" className="nav-logo" />
@@ -65,7 +73,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

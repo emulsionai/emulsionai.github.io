@@ -1,0 +1,24 @@
+.nav {
+    @apply flex flex-row justify-between items-center;
+  }
+  
+.nav-logo {
+    @apply my-[-10px] ml-[-20px] w-[200px] sm:w-[350px] sm:ml-[-40px];
+  }
+  
+.nav-links {
+    @apply hidden md:flex flex-row gap-8 text-lg font-manrope text-white;
+  }
+  
+.nav-menu-icon {
+    @apply md:hidden flex flex-1 justify-end items-center z-10;
+  }
+  
+.nav-menu {
+    @apply p-6 bg-[#001B3D] absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl;
+  }
+  
+.nav-menu-list {
+    @apply list-none text-white flex justify-end items-start flex-col gap-4;
+  }
+  
