@@ -1,0 +1,24 @@
+/* Feature Component */
+
+.feature-circle {
+    @apply block w-[62px] h-[62px] bg-gradient-to-r from-[#AE67FA] to-[#33CC99] rounded-full justify-center items-center m-2
+}
+
+.feature-circle-fill {
+    @apply flex w-[59px] h-[59px] bg-[#040C18] rounded-full items-center justify-center
+}
+
+
+/* Features Component */
+
+.features {
+    @apply relative w-full grid grid-cols-1 mt-24 md:grid-cols-2
+}
+
+.features-title {
+    @apply flex sticky font-manrope font-semibold text-2xl mb-12 mt-10 tracking-tight sm:text-3xl md:text-5xl col-span-1 text-center py-10 md:py-24 top-[30vh]
+}
+
+.features-line {
+    @apply absolute ml-10 mt-5 w-0 h-[710px] border-[#81AFDD] border-l-[1.5px] z-[-1]
+}

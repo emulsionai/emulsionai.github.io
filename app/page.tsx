@@ -6,6 +6,7 @@ export default function Home() {
     <>
       <Hero />
       <OurMission />
+
       <Features />
       <AboutUs />
       <ContactUs />
