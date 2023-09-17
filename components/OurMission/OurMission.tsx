@@ -44,15 +44,15 @@ const OurMission = () => {
         </motion.h1>
         <div className="sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
           {missionData.map((data, index) => {
-            var x = 40 * index;
+            var delay = 0.3 * index;
             return (
               <motion.div
                 key={index}
                 className="col-span-1"
-                initial={{ opacity: 0, x: -x }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.7 }}
+                transition={{ delay: delay, duration: 0.7 }}
               >
                 <div className="gradient-bar" />
                 <h1 className="heading">{data.title}</h1>

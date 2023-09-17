@@ -47,36 +47,39 @@ const AboutUs = () => {
           Meet The Leaders
         </motion.h1>
         <div className="sm:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-          {dreamTeam.map((data, index) => (
-            <motion.div
-              className="col-span-1 flex flex-col justify-center items-center bg-[#81AFDD] bg-opacity-10 h-96 rounded-3xl"
-              initial={{ opacity: 0, x: 30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="md:w-52 md:h-52 sm:w-44 sm:h-44 w-52 h-52 bg-[#81AFDD] bg-opacity-20 rounded-full">
-                <Image src={data.img} alt="" className="object-fill" />
-              </div>
-              <h2 className="font-manrope font-semibold text-white text-lg mt-4">
-                {data.name}
-              </h2>
-              <h4 className="font-monrope text-[#81AFDD] text-sm">
-                {data.role}
-              </h4>
-              <div className="flex flex-row justify-center items-center gap-5 mt-5">
-                <a href={data.linkedinLink}>
-                  <Image
-                    src={linkedin}
-                    alt=""
-                    width={20}
-                    height={20}
-                    objectFit="contain"
-                  />
-                </a>
-              </div>
-            </motion.div>
-          ))}
+          {dreamTeam.map((data, index) => {
+            var delay = 0.3 * index;
+            return (
+              <motion.div
+                className="col-span-1 flex flex-col justify-center items-center bg-[#81AFDD] bg-opacity-10 h-96 rounded-3xl"
+                initial={{ opacity: 0, x: -20 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ delay: delay, duration: 0.7 }}
+              >
+                <div className="md:w-52 md:h-52 sm:w-44 sm:h-44 w-52 h-52 bg-[#81AFDD] bg-opacity-20 rounded-full">
+                  <Image src={data.img} alt="" className="object-fill" />
+                </div>
+                <h2 className="font-manrope font-semibold text-white text-lg mt-4">
+                  {data.name}
+                </h2>
+                <h4 className="font-monrope text-[#81AFDD] text-sm">
+                  {data.role}
+                </h4>
+                <div className="flex flex-row justify-center items-center gap-5 mt-5">
+                  <a href={data.linkedinLink}>
+                    <Image
+                      src={linkedin}
+                      alt=""
+                      width={20}
+                      height={20}
+                      objectFit="contain"
+                    />
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>

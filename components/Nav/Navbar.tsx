@@ -9,6 +9,7 @@ import "./Navbar.css";
 import menu from "@/public/menu.svg";
 import close from "@/public/close.svg";
 import logo from "@/public/logo.png";
+import { Transition } from "@headlessui/react";
 
 const Navbar = () => {
   const navLinks = ["Our Mission", "About Us", "Blog", "Contact Us"];
@@ -16,33 +17,45 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <motion.nav
-      className="nav"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }} // animate the opacity and y position
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.5 }}
-    >
+    <nav className="nav">
       {/* Logo */}
-      <Link href={"/"}>
-        <Image src={logo} alt="" objectFit="contain" className="nav-logo" />
-      </Link>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }} // animate the opacity and y position
+        exit={{ opacity: 0, x: 20 }}
+      >
+        <Link href={"/"}>
+          <Image src={logo} alt="" objectFit="contain" className="nav-logo" />
+        </Link>
+      </motion.div>
 
       {/* Links for large devices */}
 
-      <div className="nav-links">
+      <motion.div
+        className="nav-links"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }} // animate the opacity and y position
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+      >
         {navLinks.map((link) => (
           <a
-            className="hover:underline"
+            className="text-slate-300 hover:text-white text-xl"
             href={`#${link.replace(" ", "-").toLowerCase()}`}
           >
             {link}
           </a>
         ))}
-      </div>
+      </motion.div>
 
       {/* Menu for small devices */}
-      <div className="nav-menu-icon">
+      <motion.div
+        className="nav-menu-icon"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }} // animate the opacity and y position
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+      >
         <Image
           src={toggle ? close : menu}
           alt="menu"
@@ -72,8 +85,8 @@ const Navbar = () => {
             })}
           </ul>
         </div>
-      </div>
-    </motion.nav>
+      </motion.div>
+    </nav>
   );
 };
 

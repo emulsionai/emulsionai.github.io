@@ -2,37 +2,55 @@
 
 import "./Hero.css";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
-  const [ref, inView] = useInView();
   return (
     <section className="relative md:h-screen">
-      <div className="blur-top-left ml-[-24px] mt-[-110px]" />
+      <motion.div
+        className="blur-top-left ml-[-24px] mt-[-110px]"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 1, duration: 0.7, ease: "easeInOut" }}
+      />
       <div className="hero-container">
-        <motion.h1
+        <motion.span
           className="hero-heading gradient-text"
-          initial={{ opacity: 0, y: -10, x: -30 }}
-          animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
-          exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          exit={{ opacity: 0 }}
         >
-          Empowering Businesses With Personalized AI
-        </motion.h1>
+          Empowering Businesses
+        </motion.span>
+        <motion.span
+          className="hero-heading gradient-text"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          With Personalized AI
+        </motion.span>
         <motion.p
-          ref={ref}
           className="hero-text"
-          initial={{ opacity: 0, y: 10, x: -30 }}
-          animate={inView ? { opacity: 1, y: 0, x: 0 } : {}} // animate the opacity and y position
-          exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }} // animate the opacity and y position
+          exit={{ opacity: 0 }}
+          transition={{ delay: 1, duration: 0.7, ease: "easeInOut" }}
         >
           At Emulsion AI, we're on a mission to revolutionize the world of AI
           and machine learning with our innovative approach. Our journey is
           built on the foundation of privacy, security, and efficiency.
         </motion.p>
       </div>
-      <div className="blur-right mr-[-24px]" />
+      <motion.div
+        className="blur-right mr-[-24px]"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 1, duration: 0.7, ease: "easeInOut" }}
+      />
     </section>
   );
 };

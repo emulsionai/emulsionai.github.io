@@ -11,8 +11,6 @@
 
 /* Features Component */
 
-
-
 .features-title {
     @apply flex sticky font-manrope font-semibold text-2xl mb-12 mt-10 tracking-tight sm:text-3xl md:text-5xl col-span-1 text-center py-10 md:py-24 top-[30vh]
 }
