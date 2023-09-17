@@ -63,9 +63,8 @@ const Features = () => {
     calculateHeightDifference();
   }, [inView]);
 
-  console.log(heightDifference);
   return (
-    <section className="features">
+    <section className="relative w-full grid grid-cols-1 mt-24 md:grid-cols-2">
       <div className="blur-left ml-[-24px] mt-[-24px]" />
       <div>
         <div className="features-title gradient-text">
