@@ -3,31 +3,74 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import "./Navbar.css";
 import menu from "@/public/menu.svg";
 import close from "@/public/close.svg";
-import logo from "@/public/logo.png";
-import { Transition } from "@headlessui/react";
+import logo_1 from "@/public/logo_1.png";
+import logo_2 from "@/public/logo_2.png";
 
 const Navbar = () => {
   const navLinks = ["Our Mission", "About Us", "Blog", "Contact Us"];
 
   const [toggle, setToggle] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHover = () => {
+    setIsHovered(true);
+  };
+
+  const handleLeave = () => {
+    setIsHovered(false);
+  };
 
   return (
     <nav className="nav">
-      {/* Logo */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }} // animate the opacity and y position
-        exit={{ opacity: 0, x: 20 }}
-      >
-        <Link href={"/"}>
-          <Image src={logo} alt="" objectFit="contain" className="nav-logo" />
-        </Link>
-      </motion.div>
+      <div className="flex flex-row items-center">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          exit={{ opacity: 0 }}
+        >
+          <Link
+            href={"/"}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+          >
+            <Image src={logo_1} alt="" objectFit="contain" width={60} />
+          </Link>
+        </motion.div>
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              key="logo"
+              initial={{
+                opacity: 1,
+                clipPath: "polygon(0 0, 0 100%, 0% 100%, 0% 0%)",
+              }}
+              animate={{
+                opacity: 1,
+                clipPath: "polygon(0 0, 0 100%, 100% 100%, 100% 0%)",
+              }}
+              exit={{
+                opacity: 1,
+                clipPath: "polygon(0 0, 0 100%, 0% 100%, 0% 0%)",
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              <Link
+                href={"/"}
+                onMouseEnter={handleHover}
+                onMouseLeave={handleLeave}
+              >
+                <Image src={logo_2} alt="" objectFit="contain" width={200} />
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Links for large devices */}
 

@@ -29,13 +29,14 @@ const AboutUs = () => {
           exit={{ opacity: 0, x: 20 }}
           transition={{ duration: 0.7 }}
         >
-          At Emulsion AI, we are a passionate team of AI enthusiasts, driven by
-          innovation and a commitment to revolutionize the world of artificial
-          intelligence. Our dedicated members, comprising talented students from
-          TUM (Technical University of Munich), bring their expertise from
-          esteemed organizations like Bosch, EY, Lidl, and more. Together, we're
-          on a mission to make AI accessible, privacy-preserving, and efficient
-          for businesses worldwide.
+          At Emulsion AI, we are a team of dedicated AI enthusiasts, united by a
+          shared passion for innovation and an unwavering commitment to
+          transforming the landscape of artificial intelligence. Our dedicated
+          members, hailing from diverse backgrounds and experiences, including
+          students from the esteemed Technical University of Munich, have honed
+          their skills at renowned organizations such as Bosch, EY, Lidl, and
+          more. Together, we're on a mission to make AI accessible,
+          privacy-preserving, and efficient for businesses worldwide.
         </motion.p>
         <motion.h1
           className="sm:col-span-3 gradient-text font-manrope font-semibold tracking-tight text-2xl md:text-[50px] md:leading-[55px] sm:text-4xl my-10 sm:my-16"

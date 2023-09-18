@@ -4,11 +4,14 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from "react";
 import "./features.css";
+import Image from "next/image";
+import deployment from "@/public/deployment.svg";
 
 interface data {
   title: String;
   desc: String;
   index: number;
+  img: any;
 }
 
 const Feature = (data: data) => {
@@ -17,9 +20,10 @@ const Feature = (data: data) => {
       <div className="feature-circle">
         <div className="flex w-[62px] h-[62px] items-center justify-center">
           <div className="feature-circle-fill">
-            <span className="font-manrope font-bold text-2xl text-white">
+            {/* <span className="font-manrope font-bold text-2xl text-white">
               {`0${data.index}`}
-            </span>
+            </span> */}
+            <Image src={data.img} alt="" width={35} height={35}></Image>
           </div>
         </div>
       </div>
